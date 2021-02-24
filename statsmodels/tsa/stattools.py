@@ -274,7 +274,7 @@ def adfuller(
     ntrend = len(regression) if regression != "nc" else 0
     if maxlag is None:
         # from Greene referencing Schwert 1989
-        maxlag = int(np.ceil(12.0 * np.power(nobs / 100.0, 1 / 4.0)))
+        maxlag = int(np.floor(12.0 * np.power(nobs / 100.0, 1 / 4.0)))
         # -1 for the diff
         maxlag = min(nobs // 2 - ntrend - 1, maxlag)
         if maxlag < 0:
